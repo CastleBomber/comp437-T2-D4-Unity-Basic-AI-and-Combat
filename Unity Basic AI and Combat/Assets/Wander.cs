@@ -19,6 +19,7 @@ public class Wander : MonoBehaviour
     Transform targetTransform = null;
     Vector3 endPosition;
     float currentAngle = 0;
+    CircleCollider2D circleCollider;
 
 	private void Start()
 	{
@@ -26,9 +27,15 @@ public class Wander : MonoBehaviour
         currentSpeed = wanderSpeed;
         rb2d = GetComponent<Rigidbody2D>();
         StartCoroutine(WanderRoutine());
+        circleCollider = GetComponent<CircleCollider2D>();
 	}
 
-    public IEnumerator WanderRoutine()
+	void Update()
+	{
+        Debug.DrawLine(rb2d.position, endPosition, Color.red);
+	}
+
+	public IEnumerator WanderRoutine()
 	{
 		while (true)
 		{
@@ -81,5 +88,45 @@ public class Wander : MonoBehaviour
 		}
 
         animator.SetBool("isWalking", false);
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player") && followPlayer)
+		{
+            currentSpeed = pursuitSpeed;
+            targetTransform = collision.gameObject.transform;
+
+            if (moveCoroutine != null)
+			{
+                StopCoroutine(moveCoroutine);
+			}
+
+            moveCoroutine = StartCoroutine(Move(rb2d, currentSpeed));
+		}
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.gameObject.CompareTag("Player"))
+		{
+            animator.SetBool("isWalking", false);
+            currentSpeed = wanderSpeed;
+
+            if (moveCoroutine != null)
+			{
+                StopCoroutine(moveCoroutine);
+			}
+
+            targetTransform = null;
+		}
+	}
+
+	void OnDrawGizmos()
+	{
+		if (circleCollider != null)
+		{
+            Gizmos.DrawWireSphere(transform.position, circleCollider.radius);
+		}
 	}
 }

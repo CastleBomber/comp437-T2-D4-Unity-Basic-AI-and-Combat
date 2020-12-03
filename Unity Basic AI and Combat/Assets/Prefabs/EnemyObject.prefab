@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7403638067824863964}
   - component: {fileID: 7403638067824863967}
   m_Layer: 9
-  m_Name: EnemyObject 1
+  m_Name: EnemyObject
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083a9875e22d04740859d32eb6d3b553, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pursuitSpeed: 0
-  wanderSpeed: 0
-  directionChangeInterval: 0
-  followPlayer: 0
+  pursuitSpeed: 1.4
+  wanderSpeed: 0.8
+  directionChangeInterval: 3
+  followPlayer: 1
