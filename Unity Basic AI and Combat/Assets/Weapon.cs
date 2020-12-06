@@ -7,6 +7,7 @@ public class Weapon : MonoBehaviour
     public GameObject ammoPrefab;
     static List<GameObject> ammoPool;
     public int poolSize;
+	public float weaponVelocity;
 
 	private void Awake()
 	{
@@ -49,7 +50,15 @@ public class Weapon : MonoBehaviour
 
 	void FireAmmo()
 	{
-		//
+		Vector3 moustPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+		GameObject ammo = SpawnAmmo(transform.position);
+
+		if (ammo != null)
+		{
+			Arc arcScript = ammo.GetComponent<Arc>();
+			float travelDuration = 1.0f / weaponVelocity;
+			StartCoroutine(arcScript.TravelArc(moustPosition, travelDuration));
+		}
 	}
 
 	private void OnDestroy()
