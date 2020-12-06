@@ -1,6 +1,8 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - Ammo
+    - Arc
     - Consumable
     - Enemy
     - HealthBar
@@ -15,6 +17,7 @@ ScriptsOnlyBuild:
     - Slot
     - SpawnPoint
     - Wander
+    - Weapon
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineConfiner
@@ -131,9 +134,15 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 14000}
     - Class: 114
-      Script: {instanceID: 14226}
+      Script: {instanceID: 14204}
     - Class: 114
-      Script: {instanceID: 14586}
+      Script: {instanceID: 14214}
+    - Class: 114
+      Script: {instanceID: 14230}
+    - Class: 114
+      Script: {instanceID: 14424}
+    - Class: 114
+      Script: {instanceID: 14592}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -823,6 +832,18 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Arc
+  - hash:
+      serializedVersion: 2
+      Hash: 41469f85c078496b0e1379e6f048453e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Weapon
+  - hash:
+      serializedVersion: 2
       Hash: ae01ff961e06b48494e340b51088720d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -839,6 +860,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_StyleSheet
+  - hash:
+      serializedVersion: 2
+      Hash: 622ddd0acf69d088e625c7f92dc44ad2
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Ammo
   - hash:
       serializedVersion: 2
       Hash: 8cd1cbba27f3cb1717254f668e9e0d5a
